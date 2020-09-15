@@ -55,6 +55,7 @@ class Figure:
                 yield (
                     Point.create_point(i, type_base)
                 )
+
         def create_pairs(points_1, points_2):
             for point_main in points_1:
                 pair = None
