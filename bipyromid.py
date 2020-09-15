@@ -19,7 +19,6 @@ class Point:
         return cls(x, y)
 
 
-
 class Pair:
     def __init__(self, point_1=Point, point_2=Point):
         self.point_1 = point_1
