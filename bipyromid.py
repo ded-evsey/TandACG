@@ -49,18 +49,16 @@ class Figure:
         count_point_on_bottom = 0
         while count_point_on_bottom < 1:
             count_point_on_bottom = int(input('Введите количество точек у нижнего основания '))
-        self = cls()
 
         def create_points(count_points, type_base):
             for i in range(count_points):
                 yield (
                     Point.create_point(i, type_base)
                 )
-
-        def create_pair_on_base(points):
-            for point_main in points:
+        def create_pairs(points_1, points_2):
+            for point_main in points_1:
                 pair = None
-                for point_sub in points:
+                for point_sub in points_2:
                     if point_sub == point_main:
                         continue
                     pair = Pair.create_pair(point_main, point_sub)
@@ -73,12 +71,12 @@ class Figure:
         points_on_top = create_points(count_point_on_top, 'верхнему')
         points_on_middle = create_points(count_point_on_middle, 'центральному')
         points_on_bottom = create_points(count_point_on_bottom, 'нижнему')
-        self.main_points = points_on_middle
-        pairs = list(create_pair_on_base(points_on_top))
-        pairs.append(create_pair_on_base(points_on_middle)),
-        pairs.append(create_pair_on_base(points_on_bottom))
-        self.pairs = pairs
-        return self
+        pairs = list(create_pairs(points_on_top, points_on_top))
+        pairs.append(create_pairs(points_on_middle, points_on_middle))
+        pairs.append(create_pairs(points_on_bottom, points_on_bottom))
+        pairs.append(create_pairs(points_on_middle, points_on_top))
+        pairs.append(create_pairs(points_on_middle, points_on_bottom))
+        return cls(list(pairs), list(points_on_middle))
 
     def point_in_figure(self, point):
         pass
