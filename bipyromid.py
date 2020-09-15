@@ -2,21 +2,22 @@ import matplotlib.pyplot as pl
 
 
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x, y, z):
         self.x = x
-        self.y = y
+        self.y = y,
+        self.z = z
 
     @classmethod
     def create_point(cls, num, type_base):
-        x, y = input(
+        x, y, z = input(
             'Введите х, y для точки '
             '{} принадлежащую к '
-            '{} основанию в виде x, y '.format(
+            '{} основанию в виде x, y, z '.format(
                 num,
                 type_base
             )
         ).split(', ')
-        return cls(x, y)
+        return cls(x, y, z)
 
 
 class Pair:
