@@ -29,6 +29,8 @@ def line_intersection(line1, line2):
     if div == 0:
         return False
 
+    def in_line(p, line):
+        return (p.x - line.p1.x)(p.y - line.p2.y) == ()
     d = (det_cls(line1), det_cls(line2))
     x = det(d, xdiff) / div
     y = det(d, ydiff) / div
