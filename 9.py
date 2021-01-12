@@ -21,6 +21,8 @@ def find_centroid_in_triangle(triangle):
 if __name__ == '__main__':
     points = []
     for _ in range(int(input('Count points\n'))):
+        # points.append(Point.create_point())  # для мануального ввода точек многогранника
+
         points.append(Point())
     centroid_points = Point(
         sum([point.x for point in points]),

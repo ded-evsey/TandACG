@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt
 import math
 """
-В заданном наборе из N точек на плоскости найти тройку, образующую треугольник минимальной ненулевой площади
+16. В заданном наборе из N точек на плоскости найти тройку, образующую треугольник минимальной ненулевой площади
 """
 
 plt.figure()
@@ -62,6 +62,7 @@ if __name__ == '__main__':
     n = int(input('enter points count \n'))
     plate = []
     for _ in range(n):
+        # points.append(Point.create_point())  # для мануального ввода точек многогранника
         plate.append(Point())
     res_triangle = Triangle(
         plate[0],
