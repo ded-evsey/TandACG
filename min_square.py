@@ -17,6 +17,9 @@ class Point:
         plt.scatter(self.x, self.y, color=color)
         return f'({self.x},{self.y})'
 
+    def get_tuple_style(self):
+        return self.x, self.y
+
     @classmethod
     def create_point(cls):
         x, y = input(

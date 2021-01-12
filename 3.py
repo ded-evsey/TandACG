@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from min_square import Point
 from n_lines import Line
 import math
@@ -39,12 +40,24 @@ if __name__ == '__main__':
     ])
     print('Точка на удалении от многогранника желательно больше +-10 ')
     point = Point.create_point()
-    d = distance(point, Line(points[0], points[1]))
+    line = Line(points[0], points[1])
+    d = distance(point, line)
     for i, point_fig in enumerate(points[1:-1]):
-        dq = distance(point, Line(point_fig, points[i+1]))
+        q_line = Line(point_fig, points[i + 1])
+        dq = distance(point, q_line)
         if dq < d and dq != 0:
             d = dq
-    dq = distance(point, Line(points[0], points[-1]))
+            line = q_line
+    q_line = Line(points[0], points[-1])
+    dq = distance(point, q_line)
     if dq < d and dq != 0:
         d = dq
-    print(f'расстояние до многоугольника{d}')
+        line = q_line
+    plt.fill(
+        [point.x for point in points],
+        [point.y for point in points],
+        fill=False
+    )
+    print(line)
+    print(f'от точки {point.__str__("green")} до многоугольника расстояние = {d}')
+    plt.show()

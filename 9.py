@@ -24,10 +24,6 @@ if __name__ == '__main__':
         # points.append(Point.create_point())  # для мануального ввода точек многогранника
 
         points.append(Point())
-    centroid_points = Point(
-        sum([point.x for point in points]),
-        sum([point.y for point in points])
-    )
     points = sorted(points, key=lambda obj: math.atan2(obj.y, obj.x))
 
     A = sum(
